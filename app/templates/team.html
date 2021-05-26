@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Yowla - Team{% endblock %}
+
+{% block page_content %}
+<div class="team">
+    <div><img class="founder_pic" src="{{url_for('static',filename='me.jpeg')}}" alt="">
+    </div>
+    <div class="founder_txt">
+        <h2 class="large">Arya Roy</h2>
+        <h3 class="light small grey">Founder</h3>
+        <p style="font-weight: 400;"> Arya has been a Data Scientist since 2012, originally polishing his craft
+            in the sell side with some of the biggest Euro banks in the world from Credit Suisse
+            to Deutsche Bank. He is the founder of Yowla media, where he spends his time obsessively working
+        out how to move the needle for his clients every day with data.</p></div>
+</div>
+<div class="social_media">
+
+</div>
+{% endblock %}

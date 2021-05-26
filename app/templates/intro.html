@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Yowla - Intro{% endblock %}
+
+{% block page_content %}
+<div class="intro">
+    <div><img class="intro_pic" src="{{url_for('static',filename='planet_core.jpg')}}" alt="">
+    </div>
+    <div class="intro_txt"><p> A quarter century years journey later , I was finally back home.
+    I was at Yowla. The year was 2021. The Post-pandemic Era was just starting.
+    The world had just started to warm up to the idea of a multi-planetary civilization.
+    Yowla is one such planet. Well not really. Its another blog. Lets build a blog together 1 data story at a time.</p></div>
+</div>
+{% endblock %}
