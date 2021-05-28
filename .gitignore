@@ -1,4 +1,5 @@
-
+.env
+.env-mysql
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
