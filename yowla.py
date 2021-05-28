@@ -80,3 +80,5 @@ def deploy():
 
     # ensure all users are following themselves
     User.add_self_follows()
+
+    # User.add_role()
