@@ -25,5 +25,5 @@ while true; do
     sleep 5
 done
 
-exec gunicorn -b :5000 --access-logfile - --error-logfile - yowla:app
+exec gunicorn -b :5000 --access-logfile - --error-logfile - yowla:app --timeout 120
 

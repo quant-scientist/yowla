@@ -388,3 +388,8 @@ border-bottom: solid 1px #ccc;
 .dropdown:hover .dropdown-content {
   display: block;
 }
+@media screen and (max-width: 768px) {
+    #navbar-top {
+        display:none
+    }
+}
