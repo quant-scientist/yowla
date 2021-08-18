@@ -4,6 +4,15 @@
 
 {% block head %}
 {{ super() }}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-200001679-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-200001679-1');
+</script>
 <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename="apple-touch-icon.png")}}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename="favicon-32x32.png")}}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename="favicon-16x16.png")}}">
@@ -14,45 +23,114 @@
 <link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700' rel='stylesheet' type='text/css'>
 {% endblock %}
 
+
 {% block navbar %}
+<div id="navbar-top" class="bg18 border-bottom-00" >
+      <div class="container width-100-sm-only">
+        <div class="container-fluid height-60px pad-0">
+          <div class="row height-60px">
+            <div class="col-xs-4 valign-middle">
+              <div class="pad-top-5 iblock valign-top">
+<!--                                  <a data-toggle="modal" data-target="#search-results" aria-haspopup="true" aria-expanded="false">-->
+<!--                    <img src="https://theathletic.com/app/themes/athletic/assets/img/header-search-icon-white@2x.png" width="20" height="20" alt="Search">-->
+<!--                  </a>-->
+                  <div class="modal modalbgdark" id="search-results" role="dialog" style="display: none;">
+  <div class="header-modal-fill blackbg"></div>
+  <div class="modal-dialog header-modal-container pad-top-5" role="document">
+    <div class="container">
+      <div class="modal-header pad-bottom-0 pad-top-18 margin-bottom-15 blackbg" style="border:0; padding-bottom:11px;">
+        <a href="#" data-dismiss="modal" id="search-results-dismiss-button" class="pull-right search-close-icon pad-top-10 pad-left-10 pad-right-25">
+          <img class="close-icon filter-invert" src="https://theathletic.com/app/themes/athletic/assets/img/icon-close@2x.png" width="14" height="13">
+        </a>
+        <div class="search-more-text">
+          Press 'Enter' to see all results        </div>
+            <div class="flex flex-row align-center">
+      <img id="icon-search-header" src="https://theathletic.com/app/themes/athletic/assets/img/search-icon@2x.png" class="author-search-icon" width="40" height="40">
+      <div class="flex flex-grow1 align-center">
+        <form class="width-100 article-search-form" search-url="">
+          <input class="width-100 author-search-text search-input" type="text" id="search-header" limit="4" should-paginate="true" author-id="" placeholder="Search for writers or stories" from-date="" to-date="" value="" page="0">
+        </form>
+      </div>
+      <div id="loader-search-header" class="display-none"><img src="https://theathletic.com/app/themes/athletic/assets/img/loading@2x.gif" class="loader-gif" width="64" height="64"></div>
+    </div>
+    <div class=" margin-top-5"></div>
+          </div>
+      <div class="modal-body search-results-container display-none lightbg2 full-screen-width" id="article-list-container-search-header">
+        <div class="container">
+          <div class="row calibre font-13 pad-bottom-24">
+            <div class="col-md-8 pad-0 pad-top-30 calibre font-14 allcaps lighttext2">Most Recent Stories</div>
+            <div class="col-md-3 col-md-offset-1 pad-0 pad-top-30 calibre font-14 allcaps lighttext2">Authors</div>
+          </div>
+          <div class="row">
+            <ul class="col-md-8 pad-0 search-list" id="article-list-search-header">
+            </ul>
+            <ul class="col-md-3 col-md-offset-1 pad-0 author-search-list" id="author-list-search-header">
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                              </div>
+                          </div>
+
+            <div class="col-xs-4 text-center pad-0">
+              <div class="pad-top-5">
+                <a href="http://yowlapro.com">
+      <img src="/static/Yowla.png" class="header-athletic-logo-nse" style="height: 60px; width: 300px">
+  </a>
+              </div>
+            </div>
+
+            <div class="col-xs-4 text-right nowrap pad-top-5">
+                <div class="nowrap pad-top-14">
+                    {% if current_user.is_authenticated %}
+                        <li class="dropdown">
+                    <a class="calibre-medium font-16 login-text-nse pad-right-24" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ current_user.gravatar(size=18) }}">
+                        Account <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="calibre-medium font-16 login-text-nse pad-right-24" href="{{ url_for('auth.change_password') }}">Change Password</a></li>
+                        <li><a class="calibre-medium font-16 login-text-nse pad-right-24" href="{{ url_for('auth.change_email_request') }}">Change Email</a></li>
+                        <li><a class="calibre-medium font-16 login-text-nse pad-right-24" href="{{ url_for('auth.logout') }}">Log Out</a></li>
+                    </ul>
+                </li>
+                    {% else %}
+                    <a class="calibre-medium font-16 login-text-nse pad-right-24" href="{{ url_for('auth.login') }}">Log In</a>
+<!--                    <a id="header-v3-checkout" class="subscribe-cta-exp black-background-button-nse trial-button-nse pad-horiz-20 calibre-medium font-16 letter-spacing-0-2-5" href="/checkout2/introannual33?checkout_entry_point=universal_nav_CTA">Subscribe</a>-->
+                    {% endif %}
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header" style="color: #fbfbfb">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Yowla</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}" style="color: #fbfbfb">Yowla</a>
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li ><a href="{{ url_for('main.index') }}" >Home</a></li>
-                <li ><a href="{{ url_for('main.intro') }}" >Intro</a></li>
-                 <li ><a href="{{ url_for('main.team') }}" >Tribe</a></li>
+        <div class="navbar-collapse collapse" >
+            <ul class="nav navbar-nav " >
+                <li ><a href="{{ url_for('main.index') }}" style="color: #fbfbfb">Home</a></li>
+                <li ><a href="{{ url_for('main.intro') }}" style="color: #fbfbfb">Intro</a></li>
+                 <li ><a href="{{ url_for('main.team') }}" style="color: #fbfbfb">Tribe</a></li>
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
+                <li><a href="{{ url_for('main.user', username=current_user.username) }}" style="color: #fbfbfb">Profile</a></li>
                 {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.can(Permission.MODERATE) %}
                 <li><a href="{{ url_for('main.moderate') }}">Moderate Comments</a></li>
-                {% endif %}
-                {% if current_user.is_authenticated %}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{ current_user.gravatar(size=18) }}">
-                        Account <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ url_for('auth.change_password') }}">Change Password</a></li>
-                        <li><a href="{{ url_for('auth.change_email_request') }}">Change Email</a></li>
-                        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
-                    </ul>
-                </li>
-                {% else %}
-                <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
                 {% endif %}
             </ul>
         </div>

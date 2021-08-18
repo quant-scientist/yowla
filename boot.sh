@@ -1,4 +1,19 @@
 #!/bin/sh
+
+#for entry in "."/*
+#do
+#  echo "$entry"
+#done
+
+echo "Script executed from: ${PWD}"
+#
+#BASEDIR=$(dirname $0)
+#echo "Script location: ${BASEDIR}"
+#apt-get update && \
+#      apt-get -y install sudo
+#sudo chmod 777 data.sqlite
+#ls -l . | grep data.sqlite
+#ls -l app
 source venv/bin/activate
 
 while true; do
@@ -11,3 +26,4 @@ while true; do
 done
 
 exec gunicorn -b :5000 --access-logfile - --error-logfile - yowla:app
+

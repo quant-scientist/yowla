@@ -1,0 +1,28 @@
+<ul class="posts">
+    {% for post in posts %}
+    <a class="article-preview-list feed-page-module" style="margin-left: 0px; margin-right: 0px;"
+       href="{{ url_for('.post', id=post.id) }}">
+        <div class="row clearfix border-none pad-top-20">
+        <div class="col-sm-2 pad-left-40">
+            <div class="media-left hidden-xs">
+                <img class="brief-thumbnail pad-top-10 pad-left-10" src="{{post.thumbnail}}" alt="">
+            </div>
+        </div>
+        <div class="col-sm-10 pad-0-small">
+            <div class="media-body">{{post.h2}}</div>
+            <div class="article-preview-author-grey">
+                <div class="calibre-bold iblock">Arya Roy</div>
+                <div class="pad-left-10 darktext2 nowrap iblock">
+                    <span class="relative-time" data-content-type="article"
+                      data-timestamp="1628799293" data-include-year="" data-locale="en_US"
+                      data-athletique="">Aug 12</span>  </div>
+                <div class="pad-left-10 darktext2 nowrap iblock">
+                <div class="iblock comment-preview-icon" data-rjs="">"-"</div></div>
+            </div>
+            <div class="excerpt-calibre font-16 line-height-18 margin-bottom-20">{{post.brief}}</div>
+
+        </div>
+    </div>
+    </a>
+    {% endfor %}
+</ul>

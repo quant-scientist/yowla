@@ -1,0 +1,83 @@
+/static/pngegg.png
+thumbnail
+# How I Taught Myself Basketball Using Data Science - Part II
+h2
+## Can Kevin Durant carry the Nets over to the Finals? The last game says it all
+h3
+The key unit used in basketball analytics is possession. How can a team score
+points ? By taking possession of the ball from the opponent team. 
+brief
+<br/><br/>
+
+<br/><br/>
+fig
+brooklyn_nets.jpg
+fig
+<br/><br/>
+
+<br/><br/>
+###Part 2: Possession - The Key to Basketball Analytics
+
+What is the right way to compare apples to oranges? By looking at the constituents. For example, we can ask what is
+the amount of carbohydrates for every 100 calories of apples or oranges. The same logic applies to basketball 
+analytics as well. We must have a benchmark metric that we can use to level all the teams. Otherwise, the comparison
+of teams does not make sense as every team has its own unique players and gameplay. Then, what is common to all the 
+basketball teams ? The common factor is that the teams need to score as many points as it can. How can a team score
+points ? By taking possession of the ball from the opponent team. Therefore, the necessary condition to score points
+is to take possession of the ball. A team with no possessions would have no points. Also, if a team has more possession
+it is not implied that it is a better team. The total number of possessions for teams in the NBA '19 - '20 season is 
+shown below. 
+<br/><br/>
+fig
+4_figure.html
+fig
+<br/><br/>
+It is evident from the above figure that the Phoenix Suns had the most number of possessions (3977) in the
+NBA '19 season. The closest team in terms of total possessions was the Dallas Mavericks. But the Mavericks were behind
+the Suns by about 150 possessions. Yet the Mavericks clinched a playoff spot in the Western Conference, but the 
+Suns failed to make the playoffs. The Suns had a win percentage of only 47% while the Mavericks had a win percentage of
+57%. Without considering possessions, we would give a lot less credit to the Mavericks than they deserved. In spite of
+having lesser number of possessions than the Suns, the Mavericks had a 10% better win percentage. The more the number of
+points a team scores per unit possession the more skilled that team is. 
+<br/><br/>
+We now understand the significance of possessions in the game of basketball. But how do we calculate possessions? 
+
+> Possessions = (Field Goal Attempts - Offensive Rebounds) + Turnovers + (scaling factor * Free Throw Attempts)
+
+<br/><br/>
+Let us analyze the above formula. The first term is (Field Goal Attempts - Offensive Rebounds). Field Goal Attempts is 
+the primary form of ball possession. However, Offensive Rebounds are subtracted to give credit to teams that have 
+more number of Offensive Rebounds. Even with the same number of field goal attempts, a team that has more number of
+Offensive Rebounds should be considered as the better team. To further illustrate this point, we go back to our 
+comparison of the Suns and the Mavericks. Both the Suns and the Mavericks have comparable number of Field Goal Attempts
+for the NBA '19 -'20 season. However, the Mavericks made about 40 Offensive Rebounds more than the Suns. Therefore, the 
+Mavericks have a lower number of Possessions compared to the Suns. Furthermore the Mavericks performed better than the 
+Suns in that season. 
+<br/><br/>
+The second term in the formula is Turnovers. This is a relatively straightforward addition to Possessions. Interestingly,
+Brooklyn Nets, the team that we started our article with, had the most number of Turnovers in the NBA '19 - '20 season. 
+Orlando Magic had the lowest number of Turnovers, lagging behind the Nets by about 150 Turnovers. Yet, both the 
+Nets and the Magic clinched playoff spots in that NBA season.
+<br/><br/>
+The last term in the Possessions formula is Free Throw Attempts multiplied by a scaling factor. Free Throw Attempts are 
+not counted under Field Goal Attempts. However, some Free Throw Attempts are linked to Possession. Hence Field Goal 
+Attempts is added to the Possessions formula. What is debatable is the fraction of Field Goal Attempts that can be
+considered Possessions. Free Throws can be awarded to a NBA team for a variety of reasons, including foul while attempting 
+a basket, three-point or four-point play, penalty situation etc. Thus statisticians have empirically calculated that 
+40% of Free Throw Attempts convert to Possessions. Therefore the scaling factor is 0.4. 
+
+Let us look at the distribution of Possessions per NBA game in the figure below.
+<br/><br/>
+fig
+5_figure.html
+fig
+<br/><br/>
+
+The median of the number of Possessions per game is about 100. This makes sense. If you look at NBA advanced team 
+statistics like offensive and defensive efficiency, those are expressed per 100 possessions by the team. Only 17 out of
+the total 1059 games had more than 115 possessions for the home team. The quartiles about the median (eg. the second and
+the third quartiles) range from 95 to 104 possessions. 
+
+In the next part, we will explore how Possessions can be used to calculate advanced team statistics. 
+
+
