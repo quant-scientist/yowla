@@ -9,6 +9,7 @@ services:
     command: --sql_mode=""
   yowla:
     #    image: "yowladmin/yowla:latest"
+    container_name: yowla
     build: .
 #    depends_on:
 #      - mysql
@@ -23,7 +24,7 @@ services:
     #      - ./app:/home/yowla/app
 
     ports:
-      - "80:5000"
+      - "5000:5000"
     #    logging:
     #      driver: awslogs
     #      options:
@@ -35,5 +36,13 @@ services:
 #    command: ["./wait-for-it/wait-for-it.sh", "localhost:80", "--", "npm", "run", "migrate"]
     links:
       - mysql
+  nginx:
+    container_name: nginx
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - yowla
 #volumes:
 #  mysql_data:
