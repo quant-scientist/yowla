@@ -124,6 +124,7 @@
                 <li ><a href="{{ url_for('main.index') }}" style="color: #fbfbfb">Home</a></li>
                 <li ><a href="{{ url_for('main.intro') }}" style="color: #fbfbfb">Intro</a></li>
                  <li ><a href="{{ url_for('main.team') }}" style="color: #fbfbfb">Tribe</a></li>
+                <li ><a href="{{ url_for('main.contact_us') }}" style="color: #fbfbfb">Contact Us</a></li>
                 {% if current_user.is_authenticated %}
                 <li><a href="{{ url_for('main.user', username=current_user.username) }}" style="color: #fbfbfb">Profile</a></li>
                 {% endif %}

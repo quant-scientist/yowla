@@ -1,13 +1,14 @@
-from flask import render_template, redirect, url_for, abort, flash, request,\
+from flask import render_template, redirect, url_for, abort, flash, request, \
     current_app, make_response
 from flask_login import login_required, current_user
 from flask_sqlalchemy import get_debug_queries
 from . import main
-from .forms import EditProfileForm, EditProfileAdminForm, PostForm,\
-    CommentForm
+from .forms import EditProfileForm, EditProfileAdminForm, PostForm, \
+    CommentForm, ContactForm
 from .. import db
-from ..models import Permission, Role, User, Post, Comment
+from ..models import Permission, Role, User, Post, Comment, Contact
 from ..decorators import admin_required, permission_required
+from ..email import send_email
 
 
 @main.after_app_request
@@ -56,13 +57,40 @@ def index():
     return render_template('index.html', form=form, posts=posts,
                            show_followed=show_followed, pagination=pagination)
 
+
 @main.route('/intro')
 def intro():
     return render_template('intro.html')
 
+
 @main.route('/team')
 def team():
     return render_template('team.html')
+
+
+@main.route('/thank-you')
+def thank_you():
+    return render_template('thank-you.html')
+
+
+@main.route('/contact-us', methods=['GET', 'POST'])
+def contact_us():
+    form = ContactForm()
+    if form.validate_on_submit():
+        contact = Contact(name=form.name.data,
+                          email=form.email.data.lower(),
+                          subject=form.subject.data,
+                          message=form.message.data)
+        send_email('arya.roy@yowlapro.com', 'New Contact',
+                   'auth/email/contact', contact=contact)
+        # db.create_all()
+        # Contact.create(db.session.bind,checkFirst=True)
+        # db.session.create_index(op.f('ix_contact_email'), 'contact', ['email'], unique=True)
+        db.session.add(contact)
+        db.session.commit()
+        return render_template('contact-us.html',form=form,submitted=True)
+    return render_template('contact-us.html',form=form,submitted=False)
+
 
 @main.route('/user/<username>')
 def user(username):
@@ -137,7 +165,7 @@ def post(id):
     page = request.args.get('page', 1, type=int)
     if page == -1:
         page = (post.comments.count() - 1) // \
-            current_app.config['FLASKY_COMMENTS_PER_PAGE'] + 1
+               current_app.config['FLASKY_COMMENTS_PER_PAGE'] + 1
     pagination = post.comments.order_by(Comment.timestamp.asc()).paginate(
         page, per_page=current_app.config['FLASKY_COMMENTS_PER_PAGE'],
         error_out=False)
@@ -236,7 +264,7 @@ def followed_by(username):
 @login_required
 def show_all():
     resp = make_response(redirect(url_for('.index')))
-    resp.set_cookie('show_followed', '', max_age=30*24*60*60)
+    resp.set_cookie('show_followed', '', max_age=30 * 24 * 60 * 60)
     return resp
 
 
@@ -244,7 +272,7 @@ def show_all():
 @login_required
 def show_followed():
     resp = make_response(redirect(url_for('.index')))
-    resp.set_cookie('show_followed', '1', max_age=30*24*60*60)
+    resp.set_cookie('show_followed', '1', max_age=30 * 24 * 60 * 60)
     return resp
 
 
