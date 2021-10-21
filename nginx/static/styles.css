@@ -24,6 +24,9 @@ padding-top: 5px;
 .pad-top-10 {
 padding-top: 10px;
 }
+.pad-top-14 {
+padding-top: 14px;
+}
 .pad-top-20 {
 padding-top: 20px;
 }
@@ -388,254 +391,56 @@ border-bottom: solid 1px #ccc;
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.bd-navbar {
+min-height: 4rem;
+background-color: #563d7c;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.05),inset 0 -1px 0 rgba(0,0,0,.1);
+}
 @media screen and (max-width: 768px) {
     #navbar-top {
         display:none
     }
 }
-#contact-us .wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align:center
+#comp-ka26fba8 {
+--rd: 0px;
+--shd: none;
+/*--bg: var(--color_14);*/
+/*--brd: var(--color_14);*/
+--brw: 0px;
+--alpha-bg: 0;
+--alpha-brd: 1;
+--boxshadowtoggleon-shd: none;
 }
-
-#contact-us .wrap.pixpa-contactus .pannel-left {
-    width:75%
+#comp-ka26fba8 {
+height: auto;
+width: auto;
+align-self: stretch;
+justify-self: stretch;
+position: relative;
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 0px;
+margin-bottom: 0px;
+grid-area: 1/1/2/2;
 }
-
-#contact-us .wrap.pixpa-contactus .pannel-left.w-100 {
-    width:100%
-}
-
-#contact-us .wrap.affiliate {
-    padding-top:30px
-}
-
-@media screen and (max-width: 680px) {
-    #contact-us .wrap.affiliate {
-        padding-top:0
-    }
-}
-
-#contact-us .wrap.affiliate .pannel-left {
-    width:58%
-}
-
-@media screen and (max-width: 680px) {
-    #contact-us .wrap.affiliate .pannel-left {
-        width:100%
-    }
-}
-
-#contact-us .wrap.affiliate .pannel-left h3 {
-    font-weight: 500;
-    font-size: 20px;
-    margin:0 0 15px
-}
-
-#contact-us .wrap.affiliate .page-title {
-    line-height: 1.5;
-    font-size: 16px;
-    font-weight: 500;
-    color: #161616;
-    margin:1.5em 0 .2em
-}
-
-#contact-us .wrap.affiliate li {
-    margin-bottom: 10px;
-    line-height: 1.5;
-    font-weight: 400;
-    color:#878787
-}
-
-#contact-us .wrap.affiliate .pannel-right {
-    width:40%
-}
-
-@media screen and (max-width: 680px) {
-    #contact-us .wrap.affiliate .pannel-right {
-        width:100%
-    }
-}
-
-#contact-us .wrap.affiliate .pannel-right .contact-form, #contact-us .wrap.affiliate .pannel-right .contact-form input[type=email], #contact-us .wrap.affiliate .pannel-right .contact-form input[type=number], #contact-us .wrap.affiliate .pannel-right .contact-form input[type=text] {
-    width:100%
-}
-
-#contact-us .wrap .pannel-left {
-    display: inline-block;
-    padding-right: 10%;
-    vertical-align: top;
-    width: 90%;
-    line-height: 1.5;
-    text-align:left
-}
-
-@media screen and (max-width: 680px) {
-    #contact-us .wrap .pannel-left {
-        width: 100%;
-        padding:0
-    }
-}
-
-#contact-us .wrap .pannel-left h2 {
-    font-size: 28px;
-    margin:0 0 10px
-}
-
-#contact-us .wrap .pannel-left h2 span {
-    color: #878787;
-    font-size: 14px;
-    display:block
-}
-
-#contact-us .wrap .pannel-left h1 {
-    font-size: 35px;
-    margin:0 0 10px
-}
-
-@media screen and (max-width: 767px) {
-    #contact-us .wrap .pannel-left h1 {
-        font-size:30px
-    }
-}
-
-#contact-us .wrap .pannel-left h3 {
-    font-size: 22px;
-    margin: 15px 0 10px;
-    font-weight:500
-}
-
-#contact-us .wrap .pannel-left h3 p {
-    font-size: 12px;
-    margin-bottom:10px
-}
-
-#contact-us .wrap .pannel-left p {
-    margin: 0 0 15px;
-    font-size: 16px;
-    font-weight: 300;
-    color:#878787
-}
-
-#contact-us .wrap .pannel-left p.sub-text {
-    font-weight:500
-}
-
-#contact-us .wrap .pannel-left h4 {
-    font-size: 18px;
-    margin: 0 0 10px;
-    font-weight:500
-}
-
-#contact-us .wrap .pannel-left a {
-    color: #00c5be;
-    font-weight:500
-}
-
-#contact-us .wrap .pannel-left ul.square {
-    margin: 0 30px;
-    padding:0
-}
-
-#contact-us .wrap .pannel-left ul.square li {
-    list-style-type: square;
+.comp-ka26fba8-container {
+    height: auto;
+    width: auto;
+    align-self: stretch;
+    justify-self: stretch;
     position: relative;
-    color:#000
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    grid-area: 1/1/2/2;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
-
-#contact-us .wrap .pannel-right {
-    float: right;
-    text-align: left;
-    display: inline-block;
-    width: 25%;
-    line-height:1.5
+._1Es9D, ._2FOa5 {
+box-shadow: var(--shd,0 0 0 transparent);
+/*border-radius: var(--corvid-border-radius,var(--rd,0));*/
+/*background-color: var(--corvid-background-color,rgba(var(--bg,0,0,0),var(--alpha-bg,0)));*/
+/*border: solid var(--corvid-border-color,rgba(var(--brd,227,227,227),var(--alpha-brd,1))) var(--corvid-border-width,var(--brw,0));*/
 }
-
-@media screen and (max-width: 680px) {
-    #contact-us .wrap .pannel-right {
-        width: 100%;
-        float: left;
-        margin: 0 0 50px;
-        padding: 0;
-        border:0
-    }
-}
-
-#contact-us .wrap .pannel-right h3 {
-    font-weight: 500;
-    font-size: 20px;
-    margin:0 0 15px
-}
-
-#contact-us .wrap .pannel-right p {
-    margin: 0 0 15px;
-    font-weight: 400;
-    font-size: 15px;
-    color:#878787
-}
-
-#contact-us .wrap .pannel-right a {
-    color:#00c5be
-}
-
-#contact-us .contact-form {
-    margin-top:30px
-}
-
-#contact-us .contact-form.w-75 {
-    width:75%
-}
-
-#contact-us .contact-form select.contact-form-field {
-    background: #fff;
-    color: #696969;
-    border: 1px solid #e5e5e5;
-    padding: 15px;
-    width: 100%;
-    margin-bottom: 0;
-    -webkit-appearance:none
-}
-
-#contact-us .contact-form .selectbox-product {
-    position: relative;
-    margin-bottom: 15px;
-    display: inline-block;
-    width:80%
-}
-
-#contact-us .contact-form .selectbox-product .product_icons.menu-svg-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-left: 10px;
-    fill:#696969
-}
-
-#contact-us .contact-form .contact-form-field {
-    border: 1px solid #e5e5e5;
-    border-radius: 5px;
-    outline: 0;
-    width: 80%;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    font-size:16px
-}
-
-@media screen and (max-width: 767px) {
-    #contact-us .contact-form .contact-form-field {
-        width:95%
-    }
-}
-
-#contact-us .contact-form .submit-btn {
-    font-size: 16px;
-    padding:15px 50px
-}
-
-#contact-us .contact-form .submit-btn:hover {
-    background:#0f1419
-}
-
-
