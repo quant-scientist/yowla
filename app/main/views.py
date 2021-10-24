@@ -33,7 +33,7 @@ def server_shutdown():
     return 'Shutting down...'
 
 
-@main.route('/', methods=['GET', 'POST'])
+@main.route('/blog', methods=['GET', 'POST'])
 def index():
     form = PostForm()
     if current_user.can(Permission.WRITE) and form.validate_on_submit():
@@ -58,9 +58,23 @@ def index():
                            show_followed=show_followed, pagination=pagination)
 
 
-@main.route('/intro')
+@main.route('/', methods=['GET', 'POST'])
 def intro():
-    return render_template('intro.html')
+    form = ContactForm()
+    if form.validate_on_submit():
+        contact = Contact(name=form.name.data,
+                          email=form.email.data.lower(),
+                          subject=form.subject.data,
+                          message=form.message.data)
+        send_email('arya.roy@yowlapro.com', 'New Contact',
+                   'auth/email/contact', contact=contact)
+        # db.create_all()
+        # Contact.create(db.session.bind,checkFirst=True)
+        # db.session.create_index(op.f('ix_contact_email'), 'contact', ['email'], unique=True)
+        db.session.add(contact)
+        db.session.commit()
+        return render_template('index_new.html', form=form, submitted=True)
+    return render_template('index_new.html', form=form, submitted=False)
 
 
 @main.route('/team')
