@@ -61,9 +61,15 @@ class CommentForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Your Email Address', validators=[DataRequired(), Email()])
-    subject = StringField('Subject', validators=[DataRequired()])
+    first_name = StringField('', validators=[DataRequired()])
+    last_name = StringField('', validators=[DataRequired()])
+    email = StringField('', validators=[DataRequired(), Email()])
+    company_name = StringField('', validators=[DataRequired()])
+    service = SelectField('Select the service you need',choices=[('BI','Business Intelligence'),
+                                                                 ('CRM','CRM Usage'),
+                                                                 ('DS','Data Science'),
+                                                                 ('DE','Data Engineering')])
+    # subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField(
         'Message',
         validators=[DataRequired()])

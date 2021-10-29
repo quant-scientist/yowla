@@ -62,9 +62,11 @@ def index():
 def intro():
     form = ContactForm()
     if form.validate_on_submit():
-        contact = Contact(name=form.name.data,
+        contact = Contact(first_name=form.first_name.data,
+                          last_name=form.last_name.data,
                           email=form.email.data.lower(),
-                          subject=form.subject.data,
+                          company_name=form.company_name.data,
+                          service=form.service.data,
                           message=form.message.data)
         send_email('arya.roy@yowlapro.com', 'New Contact',
                    'auth/email/contact', contact=contact)
@@ -73,8 +75,8 @@ def intro():
         # db.session.create_index(op.f('ix_contact_email'), 'contact', ['email'], unique=True)
         db.session.add(contact)
         db.session.commit()
-        return render_template('index_new.html', form=form, submitted=True)
-    return render_template('index_new.html', form=form, submitted=False)
+        return redirect(url_for('.intro'))
+    return render_template('index_new.html', form=ContactForm(), submitted=False)
 
 
 @main.route('/team')
